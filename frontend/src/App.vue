@@ -12,7 +12,8 @@ import InputArea from './components/InputArea.vue';
 import DisplayArea from './components/DisplayArea.vue';
 
 const notes = ref([]);
-const API_URL = 'http://127.0.0.1:5000/notes';
+const API_BASE_URL = '/api'; // Use relative path for API
+const API_URL = `${API_BASE_URL}/notes`;
 
 const fetchNotes = async () => {
   try {

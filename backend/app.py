@@ -44,4 +44,4 @@ def delete_note(note_id):
         return jsonify({'message': 'Invalid note ID', 'error': str(e)}), 400
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=True, host='0.0.0.0')
