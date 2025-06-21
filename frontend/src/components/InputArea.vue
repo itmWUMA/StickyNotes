@@ -1,13 +1,21 @@
 <template>
   <div class="input-area">
     <h2>输入区</h2>
-    <textarea id="note-input" placeholder="请输入便签内容..."></textarea>
-    <button id="add-button">添加便签</button>
+    <textarea id="note-input" v-model="noteContent" placeholder="请输入便签内容..."></textarea>
+    <button id="add-button" @click="addNote">添加便签</button>
   </div>
 </template>
 
 <script setup>
-// JS logic will be added later
+import { ref } from 'vue';
+
+const noteContent = ref('');
+const emit = defineEmits(['add-note']);
+
+const addNote = () => {
+  emit('add-note', noteContent.value);
+  noteContent.value = ''; // Clear input after adding
+};
 </script>
 
 <style scoped>

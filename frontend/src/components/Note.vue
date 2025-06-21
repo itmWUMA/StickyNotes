@@ -1,12 +1,25 @@
 <template>
   <div class="note">
-    <p>这是一个示例便签纸。</p>
-    <button class="delete-button"><i class="fas fa-trash"></i></button>
+    <p>{{ note.content }}</p>
+    <button class="delete-button" @click="deleteNote"><i class="fas fa-trash"></i></button>
   </div>
 </template>
 
 <script setup>
-// JS logic will be added later
+import { defineProps, defineEmits } from 'vue';
+
+const props = defineProps({
+  note: {
+    type: Object,
+    required: true
+  }
+});
+
+const emit = defineEmits(['delete-note']);
+
+const deleteNote = () => {
+  emit('delete-note', props.note.id);
+};
 </script>
 
 <style scoped>

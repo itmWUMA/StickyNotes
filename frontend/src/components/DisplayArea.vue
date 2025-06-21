@@ -2,16 +2,27 @@
   <div class="display-area">
     <h2>展示区</h2>
     <div class="notes-container">
-      <!-- 示例便签纸 -->
-      <Note />
-      <Note />
+      <Note v-for="note in notes" :key="note.id" :note="note" @delete-note="handleDeleteNote" />
     </div>
   </div>
 </template>
 
 <script setup>
+import { defineProps, defineEmits } from 'vue';
 import Note from './Note.vue';
-// JS logic will be added later
+
+const props = defineProps({
+  notes: {
+    type: Array,
+    default: () => []
+  }
+});
+
+const emit = defineEmits(['delete-note']);
+
+const handleDeleteNote = (noteId) => {
+  emit('delete-note', noteId);
+};
 </script>
 
 <style scoped>
