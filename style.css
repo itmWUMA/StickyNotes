@@ -81,11 +81,15 @@ button:hover {
     position: absolute;
     bottom: 10px;
     right: 10px;
-    background: #d9534f; /* Red */
-    padding: 5px 10px;
-    font-size: 0.8rem;
+    background: none;
+    border: none;
+    padding: 0;
+    font-size: 1.2rem; /* Increase size for icon */
+    color: #d9534f; /* Red color for the icon */
+    cursor: pointer;
 }
 
 .delete-button:hover {
-    background: #c9302c;
+    color: #c9302c; /* Darker red on hover */
+    background-color: #e8f1f5;
 }
