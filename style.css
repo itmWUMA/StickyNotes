@@ -1,0 +1,91 @@
+body {
+    font-family: sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 20px;
+    background: linear-gradient(to right, 
+        #2980b9,
+        #6dd5fa,
+        #ffffff);
+    color: #eeeeee;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.input-area, .display-area {
+    flex: 1;
+    background-color: #303841;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.input-area h2, .display-area h2 {
+    margin-top: 0;
+    color: #eeeeee;
+}
+
+textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-sizing: border-box; /* Include padding and border in the element's total width and height */
+    font-family: sans-serif;
+}
+
+button {
+    display: inline-block;
+    background: #ff5722;
+    color: #fff;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+button:hover {
+    background: #005691;
+}
+
+.notes-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 15px;
+}
+
+.note {
+    background-color: #e8f1f5; /* Light yellow */
+    border: 1px solid;
+    color: #303841;
+    padding: 15px;
+    border-radius: 4px;
+    position: relative;
+    word-wrap: break-word; /* Break long words */
+}
+
+.note p {
+    margin-top: 0;
+    margin-bottom: 25px; /* Space for delete button */
+}
+
+.delete-button {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    background: #d9534f; /* Red */
+    padding: 5px 10px;
+    font-size: 0.8rem;
+}
+
+.delete-button:hover {
+    background: #c9302c;
+}
