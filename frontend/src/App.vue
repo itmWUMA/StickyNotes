@@ -6,24 +6,44 @@
 </template>
 
 <script setup>
-import { ref } from 'vue';
+import { ref, onMounted } from 'vue';
+import axios from 'axios';
 import InputArea from './components/InputArea.vue';
 import DisplayArea from './components/DisplayArea.vue';
 
 const notes = ref([]);
+const API_URL = 'http://127.0.0.1:5000/notes';
 
-const addNote = (noteContent) => {
-  if (noteContent.trim()) {
-    notes.value.push({
-      id: Date.now(), // Simple unique ID
-      content: noteContent
-    });
+const fetchNotes = async () => {
+  try {
+    const response = await axios.get(API_URL);
+    notes.value = response.data;
+  } catch (error) {
+    console.error('Error fetching notes:', error);
   }
 };
 
-const deleteNote = (noteId) => {
-  notes.value = notes.value.filter(note => note.id !== noteId);
+const addNote = async (noteContent) => {
+  if (noteContent.trim()) {
+    try {
+      const response = await axios.post(API_URL, { content: noteContent });
+      notes.value.push(response.data);
+    } catch (error) {
+      console.error('Error adding note:', error);
+    }
+  }
 };
+
+const deleteNote = async (noteId) => {
+  try {
+    await axios.delete(`${API_URL}/${noteId}`);
+    notes.value = notes.value.filter(note => note.id !== noteId);
+  } catch (error) {
+    console.error('Error deleting note:', error);
+  }
+};
+
+onMounted(fetchNotes);
 </script>
 
 <style>
