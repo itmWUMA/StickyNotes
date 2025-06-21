@@ -2,7 +2,7 @@
   <div class="display-area">
     <h2>展示区</h2>
     <div class="notes-container">
-      <Note v-for="note in notes" :key="note.id" :note="note" @delete-note="handleDeleteNote" />
+      <Note v-for="note in notes" :key="note._id" :note="note" @delete-note="handleDeleteNote" />
     </div>
   </div>
 </template>

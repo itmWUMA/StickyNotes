@@ -37,7 +37,7 @@ const addNote = async (noteContent) => {
 const deleteNote = async (noteId) => {
   try {
     await axios.delete(`${API_URL}/${noteId}`);
-    notes.value = notes.value.filter(note => note.id !== noteId);
+    notes.value = notes.value.filter(note => note._id !== noteId);
   } catch (error) {
     console.error('Error deleting note:', error);
   }

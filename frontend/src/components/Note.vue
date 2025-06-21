@@ -18,7 +18,7 @@ const props = defineProps({
 const emit = defineEmits(['delete-note']);
 
 const deleteNote = () => {
-  emit('delete-note', props.note.id);
+  emit('delete-note', props.note._id);
 };
 </script>
 
