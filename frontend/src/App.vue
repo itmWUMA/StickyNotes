@@ -43,7 +43,7 @@ body {
     display: flex;
     flex-direction: column;
     gap: 20px;
-    max-width: 1200px;
+    max-width: 1600px; /* Increased max-width */
     margin: 0 auto;
 }
 </style>

@@ -28,6 +28,7 @@ const handleDeleteNote = (noteId) => {
 <style scoped>
 .display-area {
     flex: 1;
+    min-width: 400px; /* Added min-width */
     background-color: #303841;
     padding: 20px;
     border-radius: 8px;
